@@ -1,0 +1,53 @@
+<?php
+	$id = $_GET['id'];
+	include("../cardiologico/datos/datos.php");
+	$datos=Buscar_pacientes($id);
+	$cedula=$datos[1];
+	$nombre=$datos[2];
+	$edad=$datos[3];
+	$sexo=$datos[4];
+	$telefono=$datos[5];
+	$direccion=$datos[6];
+	$correo=$datos[7];	
+	if (empty($resultado)){
+	$resultado="";
+	}
+	$resultado.="<form id=\"formulario\" name=\"formulario\">";
+	$resultado.="<table cellspacing=\"0\" width=\"560\" border=\"1\">";
+	$resultado.="<tr>";
+	$resultado.="<td class=\"formulario\"  width=\"120\">Cedula del Paciente: </td>";
+	$resultado.="<td class=\"formulario\"  width=\"147\"><input name=\"cedulap\" type=\"text\" id=\"cedulap\" value=\"$cedula\" size=\"20\" maxlength=\"20\" class=\"textbox\" disabled></td>";
+	$resultado.="<td class=\"formulario\"  width=\"103\">Nombre y Apellido:</td>";
+	$resultado.="<td class=\"formulario\"  width=\"162\"><input name=\"nombrep\" type=\"text\" id=\"nombrep\" value=\"$nombre\" class=\"textbox\" disabled></td>";
+	$resultado.="</tr>";
+	$resultado.="<tr>";
+	$resultado.="<td class=\"formulario\" >Edad:</td>";
+	$resultado.="<td class=\"formulario\" ><input name=\"edad\" type=\"text\" id=\"edad\" size=\"3\" value=\"$edad\" class=\"textbox\" disabled></td>";
+	$resultado.="<td class=\"formulario\" >Sexo:</td>";
+	$resultado.="<td class=\"formulario\" ><input name=\"sexo\" type=\"text\" id=\"sexo\" size=\"3\" value=\"$sexo\" class=\"textbox\" disabled>";
+	$resultado.="</td>";
+	$resultado.="</tr>";
+	$resultado.="<tr>";
+	$resultado.="<td class=\"formulario\" >Correo Electr&oacute;nico </td>";
+	$resultado.="<td class=\"formulario\" ><input type=\"text\" name=\"correo\" value=\"$correo\" class=\"textbox\" disabled></td>";
+	$resultado.="<td class=\"formulario\" >Tel&eacute;fono</td>";
+	$resultado.="<td class=\"formulario\" ><input type=\"text\" name=\"telefono\" value=\"$telefono\" class=\"textbox\" disabled></td>";
+	$resultado.="</tr>";
+	$resultado.="</table>";
+	$resultado.="<table cellspacing=\"0\" width=\"560\" border=\"1\">";
+	$resultado.="<tr>";
+	$resultado.="<td class=\"formulario\"  width=\"550\">Direccion</td>";
+	$resultado.="</tr>";
+	$resultado.="<tr>";
+	$resultado.="<td class=\"formulario\" ><textarea name=\"direccion\" cols=\"100\" rows=\"2\" id=\"direccion\" class=\"textbox\" disabled>$direccion</textarea></td>";
+	$resultado.="</tr>";
+	$resultado.="</table>";
+	$resultado.="<table cellspacing=\"0\" width=\"560\" border=\"1\">";
+	$resultado.="<tr>";
+	$resultado.="<td class=\"formulario\" ><input type=\"button\" class=\"button\" value=\"cerrar\" onClick=\"window.parent.hidePopWin(true,'0','0','0','paciente');\"></td>";
+	$resultado.="</tr>";
+	$resultado.="</table>";
+	$resultado.="<p>&nbsp;</p>";
+	$resultado.="</form>";
+	echo $resultado;
+?>

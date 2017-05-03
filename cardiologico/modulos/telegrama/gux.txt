@@ -1,0 +1,18 @@
+$resultado.="</table>";
+$resultado.="<table width=\"700\" border=\"1\">";
+$resultado.="<tr>";
+$resultado.="<td class=\"head\">Raza</td>";
+$resultado.="<td><select name=\"raza\" id=\"raza\" class=\"textbox\" disabled>";
+$resultado.="<option selected value=\"xx\">Seleccione</option>";
+$resultado.=Raza();
+$resultado.="</select></td>";
+$resultado.="<td class=\"ayuda\"><img src=\"../../Imagenes/info.gif\" alt=\"Ayuda\" onmouseover=\"muestraAyuda(event, 'Raza')\" width=\"16\" height=\"16\"></td>";
+$resultado.="<td class=\"head\">Peso</td>";
+$resultado.="<td><input name=\"peso\" id=\"peso\" type=\"text\" class=\"textbox\" size=\"10\" disabled></td>";
+$resultado.="<td class=\"ayuda\"><img src=\"../../Imagenes/info.gif\" alt=\"Ayuda\" onmouseover=\"muestraAyuda(event, 'Peso')\" width=\"16\" height=\"16\"></td>";
+$resultado.="<td class=\"head\">Estatura</td>";
+$resultado.="<td><input name=\"estatura\" id=\"estatura\" type=\"text\" class=\"textbox\" size=\"10\" disabled></td>";
+$resultado.="<td class=\"ayuda\"><img src=\"../../Imagenes/info.gif\" alt=\"Ayuda\" onmouseover=\"muestraAyuda(event, 'Estatura')\" width=\"16\" height=\"16\"></td>";
+$resultado.="</tr>";
+$resultado.="</table>";
+$resultado.="<table width=\"700\" border=\"1\">";

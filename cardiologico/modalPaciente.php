@@ -1,0 +1,53 @@
+<?php
+	$id="".$_POST['id']."";
+	include("datos/datos.php");
+	$datos=Buscar_pacientes($id);
+	$cedula=$datos[1];
+	$nombre=$datos[2];
+	$edad=$datos[3];
+	$sexo=$datos[4];
+	$telefono=$datos[5];
+	$direccion=$datos[6];
+	$correo=$datos[7];	
+	if (empty($resultado)){
+	$resultado="";
+	}
+	$resultado.="<form id=\"formulario\" name=\"formulario\">";
+	$resultado.="<table width=\"560\" border=\"1\">";
+	$resultado.="<tr>";
+	$resultado.="<td width=\"120\" class=\"head\">Cedula del Paciente: </td>";
+	$resultado.="<td width=\"147\"><input name=\"cedulap\" type=\"text\" id=\"cedulap\" value=\"$cedula\" size=\"20\" maxlength=\"20\" class=\"textbox\" disabled></td>";
+	$resultado.="<td width=\"103\" class=\"head\">Nombre y Apellido:</td>";
+	$resultado.="<td width=\"162\"><input name=\"nombrep\" type=\"text\" id=\"nombrep\" value=\"$nombre\" class=\"textbox\" disabled></td>";
+	$resultado.="</tr>";
+	$resultado.="<tr>";
+	$resultado.="<td class=\"head\">Edad:</td>";
+	$resultado.="<td><input name=\"edad\" type=\"text\" id=\"edad\" size=\"3\" value=\"$edad\" class=\"textbox\" disabled></td>";
+	$resultado.="<td class=\"head\">Sexo:</td>";
+	$resultado.="<td><input name=\"sexo\" type=\"text\" id=\"sexo\" size=\"3\" value=\"$sexo\" class=\"textbox\" disabled>";
+	$resultado.="</td>";
+	$resultado.="</tr>";
+	$resultado.="<tr>";
+	$resultado.="<td class=\"head\">Correo Electr&oacute;nico </td>";
+	$resultado.="<td><input type=\"text\" name=\"correo\" value=\"$correo\" class=\"textbox\" disabled></td>";
+	$resultado.="<td class=\"head\">Tel&eacute;fono</td>";
+	$resultado.="<td><input type=\"text\" name=\"telefono\" value=\"$telefono\" class=\"textbox\" disabled></td>";
+	$resultado.="</tr>";
+	$resultado.="</table>";
+	$resultado.="<table width=\"560\" border=\"1\">";
+	$resultado.="<tr>";
+	$resultado.="<td width=\"550\" class=\"head\">Direccion</td>";
+	$resultado.="</tr>";
+	$resultado.="<tr>";
+	$resultado.="<td><textarea name=\"direccion\" cols=\"100\" rows=\"2\" id=\"direccion\" class=\"textbox\" disabled>$direccion</textarea></td>";
+	$resultado.="</tr>";
+	$resultado.="</table>";
+	$resultado.="<table width=\"560\" border=\"1\">";
+	$resultado.="<tr>";
+	$resultado.="<td><img src=\"Imagenes/close.png\" onClick=\"cerrar()\" style=\"cursor:pointer\" width=\"24\" height=\"24\"></td>";
+	$resultado.="</tr>";
+	$resultado.="</table>";
+	$resultado.="<p>&nbsp;</p>";
+	$resultado.="</form>";
+	echo $resultado;
+?>

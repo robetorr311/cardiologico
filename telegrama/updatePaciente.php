@@ -1,0 +1,54 @@
+<?php
+	$idpaciente="".$_POST['idpaciente']."";
+	$cedulap="".$_POST['cedulap']."";
+	$nombrep="".$_POST['nombrep']."";
+	$edad="".$_POST['edad']."";
+	$sexo="".$_POST['sexo']."";
+	$telefono="".$_POST['telefono']."";
+	$email="".$_POST['email']."";
+	$direccion="".$_POST['direccion']."";
+	$hubicacion="".$_POST['hubicacion']."";
+	include '../cardiologico/datos/datos.php';
+	if (empty($resultado)){
+	$resultado="";
+	}
+	updatePacientes($idpaciente,$cedulap,$nombrep,$edad,$sexo,$telefono,$direccion,$hubicacion,$email);	
+	$resultado.="<table width=\"700\" border=\"1\" cellspacing=\"0\"><tr>";
+	$resultado.="<td class=\"head\" width=\"113\">Cedula del Paciente : </td>";
+	$resultado.="<td class=\"formulario\"  width=\"97\"><input id=\"idpaciente\" type=\"hidden\" value=\"$idpaciente\"><input name=\"cedula\" type=\"text\" id=\"cedulap\" value=\"$cedulap\" size=\"15\" maxlength=\"15\" onChange=\"paciente(); diagex(); medico(); botones()\"></td><td class=\"formulario\"><img src=\"../cardiologico/Imagenes/info.gif\" alt=\"Ayuda\" onmouseover=\"muestraAyuda(event, 'Cedulap')\"></td>";
+	$resultado.="<td class=\"head\" width=\"116\">Nombre y Apellido:</td>";
+	$resultado.="<td  class=\"formulario\"  width=\"306\"><input name=\"nombrep\" type=\"text\" id=\"nombrep\"  class=\"textbox\" value=\"$nombrep\" size=\"50\" maxlength=\"50\" disabled></td><td class=\"formulario\"><img src=\"../cardiologico/Imagenes/info.gif\" alt=\"Ayuda\" onmouseover=\"muestraAyuda(event, 'Nombrep')\"></td>";
+	$resultado.="</tr>";
+	$resultado.="</table>";
+	$resultado.="<table width=\"700\" border=\"1\" cellspacing=\"0\">";
+	$resultado.="<tr>";
+	$resultado.="<td class=\"head\" width=\"37\">Edad:</td>";
+	$resultado.="<td  class=\"formulario\"  width=\"35\"><input name=\"edad\"  type=\"text\" id=\"edad\"  class=\"textbox\" value=\"$edad\" size=\"5\" maxlength=\"5\" disabled></td><td class=\"formulario\"><img src=\"../cardiologico/Imagenes/info.gif\" alt=\"Ayuda\" onmouseover=\"muestraAyuda(event, 'Edad')\"></td>";
+	$resultado.="<td  class=\"head\" width=\"39\">Sexo:</td>";
+	$resultado.="<td  class=\"formulario\"  width=\"55\"><select name=\"sexo\" id=\"sexo\" disabled>";
+	$resultado.="<option selected value=\"$sexo\" class=\"textbox\" >$sexo</option>";
+	$resultado.="<option value=\"M\">M</option>";
+	$resultado.="<option value=\"F\">F</option>";
+	$resultado.="</select></td><td class=\"formulario\" ><img src=\"../cardiologico/Imagenes/info.gif\" alt=\"Ayuda\" onmouseover=\"muestraAyuda(event, 'Sexo')\"></td>";
+	$resultado.="<td class=\"head\" width=\"66\">Telefono:</td>";
+	$resultado.="<td  class=\"formulario\"  width=\"97\"><input name=\"telefono\" type=\"text\" id=\"telefono\"  class=\"textbox\" value=\"$telefono\" size=\"15\" maxlength=\"15\" disabled></td><td class=\"formulario\"><img src=\"../cardiologico/Imagenes/info.gif\" alt=\"Ayuda\" onmouseover=\"muestraAyuda(event, 'Telefono')\"></td>";
+	$resultado.="</tr>";
+	$resultado.="<tr>";
+	$resultado.="<td class=\"head\" width=\"64\">email:</td>";
+	$resultado.="<td  class=\"formulario\"  width=\"215\"><input name=\"email\" type=\"text\" id=\"email\" class=\"textbox\"  value=\"$email\" size=\"30\" maxlength=\"30\" disabled></td><td class=\"formulario\"><img src=\"../cardiologico/Imagenes/info.gif\" alt=\"Ayuda\" onmouseover=\"muestraAyuda(event, 'Email')\"></td>";
+	$resultado.="<td class=\"formulario\" colspan=\"6\"></td></tr>";
+	$resultado.="</table>";
+	$resultado.="<table width=\"700\" border=\"1\" cellspacing=\"0\">";
+	$resultado.="<tr>";
+	$resultado.="<td class=\"head\" colspan=\"2\">Direcci&oacute;n del Paciente </td>";
+	$resultado.="</tr>";
+	$resultado.="<tr>";
+	$resultado.="<td  class=\"formulario\"><textarea name=\"direccion\" cols=\"80\" rows=\"2\" id=\"direccion\"  class=\"textbox\" disabled>$direccion</textarea></td><td class=\"formulario\"><img src=\"../cardiologico/Imagenes/info.gif\" alt=\"Ayuda\" onmouseover=\"muestraAyuda(event, 'Direccion')\"></td>";
+	$resultado.="</tr>";
+	$resultado.="<tr>";
+	$resultado.="<td class=\"formulario\" colspan=\"2\"><input type=\"hidden\" name=\"hubicacion\" id=\"hubicacion\" value=\"$hubicacion\"><input type=\"button\" name=\"Submit\" value=\"Ubicacion\" onClick=\"ubicacion()\" disabled>";
+	$resultado.="<input type=\"button\" name=\"Submit2\" value=\"Editar\" onClick=\"editarPacientes(document.formulario.idpaciente.value,document.formulario.cedulap.value,document.formulario.nombrep.value,document.formulario.edad.value,document.formulario.sexo.value,document.formulario.telefono.value,document.formulario.email.value,document.formulario.direccion.value,document.formulario.hubicacion.value)\" ></td>";
+	$resultado.="</tr>";
+	$resultado.="</table>";
+	echo $resultado;
+?>

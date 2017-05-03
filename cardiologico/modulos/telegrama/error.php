@@ -1,0 +1,11 @@
+$resultado.="<form name=\"formuario\" method=\"post\" action=\"examen.php\">";
+$resultado.="<table width=\"660\" border=\"1\">";
+$resultado.="<tr>";
+$resultado.="<td class=\"titulo_form\"><p align=\"center\">Error no han podido registrarse las imagenes!!!</p>";
+$resultado.="<p align=\"center\"><img src=\"../../Imagenes/error.gif\" width=\"32\" height=\"32\"> </p>";
+$resultado.="<p align=\"center\">";
+$resultado.="<input type=\"submit\" name=\"Submit\" value=\"Enviar\">";
+$resultado.="</p></td>";
+$resultado.="</tr>";
+$resultado.="</table>";
+$resultado.="</form>";

@@ -1,0 +1,10 @@
+<?php
+	$id="".$_POST['id']."";
+	$nombre="".$_POST['nombre']."";
+	$direccion="".$_POST['direccion']."";
+	$telefono="".$_POST['telefono']."";
+	$hlocalidad="".$_POST['sector']."";
+	include("../../datos/datos.php");
+	updateEstablecimiento($id,$nombre,$telefono,$direccion,$hlocalidad);
+	include("update.php");
+?>
